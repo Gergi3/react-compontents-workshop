@@ -1,0 +1,13 @@
+{
+  "address": {
+    "streetNumber": 13,
+    "street": "ul. Gosho Krakanov",
+    "city": "Petnica",
+    "country": "Bulgaria"
+  },
+  "firstName": "Tosho",
+  "lastName": "Stoqnov",
+  "email": "toshostoqnov@gmail.com",
+  "imageUrl": "https://img.freepik.com/free-photo/serious-looking-male-handsome-guy-with-blond-hair-wearing-grey-hoodie-people-emotion-concept-watching-confident-isolated-grey-wall_295783-13901.jpg?w=2000",
+  "phoneNumber": "0899123456"
+}

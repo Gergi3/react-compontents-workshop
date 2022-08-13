@@ -1,0 +1,70 @@
+import { Svg } from "../../shared/Svg";
+
+export const Pagination = (props) => {
+    const [page, setPage] = props.page;
+    const setLimit = props.setLimit;
+
+    const onLimitChangeHandler = (e) => setLimit(Number(e.currentTarget.value))
+    
+    const paginatorHandler = (e) => setPage(Number(e.currentTarget.value));
+
+    let previousPage = page !== 1
+        ? page - 1 
+        : 1;
+
+    let nextPage = page !== props.pagesCount
+        ? page + 1 
+        : props.pagesCount
+
+    return (
+        <div className="pagination position">
+            <div className="limits">
+                <span>Items per page:</span>
+                <select name="limit" className="limit" defaultValue="5" onChange={onLimitChangeHandler}>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <p className="pages">{page} of {props.pagesCount}</p>
+            <div className="actions">
+                <button className="btn" title="First Page" value="1" onClick={paginatorHandler}>
+                    <Svg
+                        icon="angles-left"
+                        className="fa-angles-left"
+                        viewBox="0 0 448 512"
+                        d="M77.25 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C175.6 444.9 183.8 448 192 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L77.25 256zM269.3 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C367.6 444.9 375.8 448 384 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L269.3 256z"
+                    />
+                </button>
+
+                <button className="btn" title="Previous Page" value={previousPage} onClick={paginatorHandler}>
+                    <Svg
+                        icon="angle-left"
+                        className="fa-angle-left"
+                        viewBox="0 0 256 512"
+                        d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"
+                    />
+                </button>
+
+                <button className="btn" title="Next Page" value={nextPage} onClick={paginatorHandler}>
+                    <Svg
+                        icon="angle-right"
+                        className="fa-angle-right"
+                        viewBox="0 0 256 512"
+                        d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
+                    />
+                </button>
+
+                <button className="btn" title="Last Page" value={props.pagesCount} onClick={paginatorHandler}>
+                    <Svg
+                        icon="angle-right"
+                        className="fa-angle-right"
+                        viewBox="0 0 448 512"
+                        d="M246.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L178.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C47.63 444.9 55.81 448 64 448s16.38-3.125 22.62-9.375l160-160C259.1 266.1 259.1 245.9 246.6 233.4zM438.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L370.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C239.6 444.9 247.8 448 256 448s16.38-3.125 22.62-9.375l160-160C451.1 266.1 451.1 245.9 438.6 233.4z"
+                    />
+                </button>
+            </div>
+        </div>
+    );
+}
